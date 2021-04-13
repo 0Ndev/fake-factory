@@ -10,6 +10,18 @@
 
 <body>
     <h2>Users</h2>
+    {% if users %}
+    <div class="user">
+        <h3>User Info</h3>
+        {% for person in users %}
+        <ul>
+            <li>First Name: {{ person.first_name }}</li>
+            <li>Last Name: {{ person.last_name }}</li>
+            <li>Email: {{ person.email }}</li>
+        </ul>
+        {% endfor %}
+    </div>
+    {% endif %}
 </body>
 
 </html>

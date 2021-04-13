@@ -1,16 +1,13 @@
-from faker import Faker
-from users.models import User
-import django
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fakersite.settings")
-# settings.configure()
 
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", 'fakersite.settings')
-
+import django
 django.setup()
 
-# generates fake data
+from users.models import User
+from faker import Faker
 
+# generate fake data
 fakegen = Faker()
 
 
@@ -21,6 +18,7 @@ def poplate(N=5):
         fake_last_name = fake_name[1]
         fake_email = fakegen.email()
 
+        # new entry
         user = User.objects.get_or_create(
             first_name=fake_first_name,
             last_name=fake_last_name,
